@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>150 Days with Reily</title>
+    <style>
+        body { 
+            background-color: #fce4ec; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
+        .container { 
+            padding: 20px; 
+            max-width: 700px; 
+            margin: 0 auto; 
+        }
+        .photo-frame { 
+            border: 10px solid white; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+            width: 95%; 
+            max-width: 500px; 
+            border-radius: 10px; 
+            margin-top: 20px; 
+        }
+        
+        /* DISEÑO DEL MENSAJE DORADO (Ahora en medio) */
+        #mensaje-oculto { 
+            display: none; 
+            margin: 30px auto; /* Margen arriba y abajo */
+            padding: 20px; 
+            background: linear-gradient(135deg, #fff9c4 0%, #fbc02d 100%);
+            color: #8e24aa; 
+            font-size: 1.5em; 
+            font-weight: bold; 
+            border-radius: 15px; 
+            border: 2px solid #fbc02d;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            max-width: 90%;
+        }
+
+        .animar-mensaje { 
+            display: block !important; 
+            animation: aparecer 1.5s ease-out forwards; 
+        }
+
+        .letter {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            line-height: 1.6;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: justify;
+            margin-top: 20px;
+            color: #5d4037;
+        }
+
+        button { 
+            background-color: #f06292; 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            border-radius: 30px; 
+            font-size: 18px; 
+            cursor: pointer; 
+            margin-top: 20px; 
+            font-weight: bold; 
+            box-shadow: 0 4px 15px rgba(240, 98, 146, 0.4);
+            transition: 0.3s;
+        }
+
+        button:hover { transform: scale(1.1); background-color: #d81b60; }
+        
+        @keyframes aparecer {
+            0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes caer {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Para mi niño lindo</h1>
+        
+        <img src="From KlickPin CF 19 Elegant curly hair care ideas that feel fresh elevated and surprisingly easy to recreate at home for anyone planning a beautiful refresh before - Pin-666673551121244732.gif" class="photo-frame">
+        
+        <p id="mensaje-oculto">Te amo nubsito🤗💗</p>
+
+        <div class="letter">
+            <h2>Hola, amorcito</h2>
+            <p>
+                Quería hacer algo diferente para decirte lo mucho que significas para mí. A veces
+                las palabras se quedan cortas y el día a día pasa tan rápido que no nos detenemos a
+                apreciar lo increíble que es habernos encontrado.
+            </p>
+            <p>
+                Gracias por ser mi apoyo incondicional en los momentos difíciles y por ser el
+                primero con quien quiero compartir mis alegrías. Gracias por cada risa compartida,
+                por las conversaciones largas y por todo en general. Eres esa persona que sabe cómo
+                iluminar mi mundo incluso en los días más grises, y no tienes idea de cuánta paz
+                me da saber que estás a mi lado.
+            </p>
+            <p>
+                Estar contigo es mi regalo favorito. No cambiaría por nada todo lo que hemos
+                construido, las metas que hemos planeado y los sueños que aún tenemos por
+                cumplir juntos. Eres mi esposito, mi amigo y el novio más increíble que pude
+                haber imaginado.
+            </p>
+            <p>
+                Te amo muchísimo, más de lo que estas palabras pueden expresar.
+                Espero que este pequeño detalle te recuerde siempre que pase lo que pase, eres y
+                siempre serás lo más especial en mi vida, que te amo como a nadie en el mundo y que
+                a mi parecer, eres la mejor persona en todo el universo.
+            </p>
+            <p style="text-align: right;"><strong>Con mucho amor, <br> Vey.</strong></p>
+        </div>
+
+        <button onclick="mostrarMensaje()">¡Haz clic aquí!</button>
+    </div>
+
+    <script>
+        function mostrarMensaje() {
+            var msg = document.getElementById('mensaje-oculto');
+            if (msg) {
+                msg.classList.add('animar-mensaje');
+            }
+
+            for (var i = 0; i < 35; i++) {
+                crearCorazon();
+            }
+        }
+
+        function crearCorazon() {
+            var c = document.createElement('div');
+            c.innerHTML = '❤️';
+            c.style.position = 'fixed';
+            c.style.top = '-50px';
+            c.style.left = Math.random() * 100 + 'vw';
+            c.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            c.style.zIndex = '10000';
+            c.style.pointerEvents = 'none';
+            c.style.animation = "caer " + (Math.random() * 3 + 2) + "s linear forwards";
+            
+            document.body.appendChild(c);
+            setTimeout(function() { c.remove(); }, 5000);
+        }
+    </script>
+</body>
+</html>
